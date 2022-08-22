@@ -1,11 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import ItemListContainer from './components/Item/ItemListContainer';
+
 
 const App = () => {
   return (
     <div className="App">
-      <NavBar />
+      <NavBar/>
+      <ItemListContainer greeting="Prueba"  />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
