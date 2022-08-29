@@ -1,10 +1,16 @@
 import React from "react";
+import Alert from 'react-bootstrap/Alert';
 
 
 const ItemListContainer = ({greeting}) => {
         return(
-            <div>   {greeting}  </div> 
+            <Alert key={'secondary'} variant={'secondary'}> 
+                {greeting} 
+            </Alert>
     )
 }
 
+
+
 export default ItemListContainer;
+

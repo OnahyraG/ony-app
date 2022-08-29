@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import ItemListContainer from './components/Item/ItemListContainer';
+import ItemCount from './components/Item/ItemCount';
+
 
 
 const App = () => {
-  return (
-    <div className="App">
-      <NavBar/>
-      <ItemListContainer greeting="Prueba"  />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          aqui estamos
-        </p>
-        <ButtonComponent/>
-      </header>
-    </div>
-  );
+
+    return (
+      <div className="App">
+        <NavBar />
+        <ItemListContainer greeting="Prueba"  />
+        <header className="App-header">
+          
+          <div>
+            <ItemCount/>
+          </div>
+          <ButtonComponent/>
+        </header>
+      </div>
+    );
 }
 const ButtonComponent = () => {
   return <button onClick={() => {alert("Bienvenid@ a la Ony app!")}}>Pulsame</button>
