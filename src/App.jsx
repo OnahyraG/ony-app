@@ -10,14 +10,19 @@ import ItemCount from './components/Item/ItemCount';
 
 const App = () => {
 
+  const onAdd = (cuenta) => {
+    console.log( `tu cuenta es ${cuenta}`
+    )
+  }
+
     return (
-      <div className="App">
+      <div className="App" >
         <NavBar />
         <ItemListContainer greeting="Prueba"  />
         <header className="App-header">
           
           <div>
-            <ItemCount/>
+            <ItemCount stock={5} initial= {1} funcionn={onAdd} />
           </div>
           <ButtonComponent/>
         </header>
