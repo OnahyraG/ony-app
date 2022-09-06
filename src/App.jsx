@@ -14,16 +14,14 @@ const App = () => {
       <div className="App" >
         <NavBar />
         <ItemListContainer greeting="Prueba"  />
+        <h1>hola</h1>
         <header className="App-header">
           
           
-          <ButtonComponent/>
+          
         </header>
       </div>
     );
-}
-const ButtonComponent = () => {
-  return <button onClick={() => {alert("Bienvenid@ a la Ony app!")}}>Pulsame</button>
 }
 
 export default App;

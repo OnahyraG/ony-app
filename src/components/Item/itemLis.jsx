@@ -1,17 +1,20 @@
 import React from "react";
+import { CardTitle } from "reactstrap";
 import Itemjs from "./Itemjs";
 
 const ItemLis = ({productos}) => {
+    console.log("pro", productos);
+
     return (
     
         <>
         
-        <div>
-            {productos.map((producto,index) => {
-                <Itemjs key={index} producto={producto}/>
+            {productos.map((producto) => {
+            <Itemjs id={producto.id} title={producto.title}/>
             } )}
-        </div>
 
         </>
     )
 }
+
+export default ItemLis;
