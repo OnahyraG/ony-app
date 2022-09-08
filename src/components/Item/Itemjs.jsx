@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
+const Itemjs = ({id, titulo, precio, img}) => {
 
-const Itemjs = ({id, title}) => {
-
-        console.log("producto", title);
+        console.log("producto", titulo);
 
         return(
-                        <Card key={id} style={{ width: '18rem' }}>
-                        {/* <Card.Img variant="top" src={producto.thumbnail} alt=""/> */}
-                        <Card.Body>
-                        <Card.Title>{title}</Card.Title>
+                        <Card key={id} style={{ width: '18rem'}} >
+                        <Card.Img variant="top" src={img} alt=""/>  
+                        <Card.Body >
+                        <Card.Title variant="Secondary">{titulo}</Card.Title>
                         <Card.Text>
-                        .
+                        {precio}
                         </Card.Text>
-                        
+                        <Button variant="secondary">Go somewhere</Button>
                         </Card.Body>
                         </Card>
                 )

@@ -1,14 +1,16 @@
 import React from "react";
-import { CardTitle } from "reactstrap";
-import Itemjs from "./Itemjs";
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Itemjs from "./Itemjs";
 
-const ItemLis = ({productos}) => {
-    console.log("pro", productos);
+
+const ItemDetail = ({productos}) => {
+
+    console.log("proo",productos)
 
     const productosFiltrados = () => {
 
-        return productos.filter ((producto,index) => index <=20 )
+        return productos.filter ((index) => index <=1 )
 
     }
 
@@ -28,4 +30,9 @@ const ItemLis = ({productos}) => {
     )
 }
 
-export default ItemLis;
+
+
+export default ItemDetail;
+
+
+
