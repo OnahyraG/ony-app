@@ -8,7 +8,7 @@ const ItemLis = ({productos}) => {
 
     const productosFiltrados = () => {
 
-        return productos.filter ((producto,index) => index <=20 )
+        return productos.filter ((producto,index) => index <=0 )
 
     }
 

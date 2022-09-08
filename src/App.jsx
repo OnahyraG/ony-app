@@ -13,8 +13,8 @@ const App = () => {
     return (
       <div className="App" >
         <NavBar />
-        {/* <ItemListContainer greeting="Onny App"  /> */}
-        <ItemDetailContainer/>
+        <ItemListContainer greeting="Onny App"  />
+        {/* <ItemDetailContainer/> */}
         <h1>hola</h1>
         <header className="App-header">
           
