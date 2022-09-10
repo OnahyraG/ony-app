@@ -6,11 +6,10 @@ import Itemjs from "./Itemjs";
 
 const ItemDetail = ({productos}) => {
 
-    console.log("proo",productos)
 
     const productosFiltrados = () => {
 
-        return productos.filter ((index) => index <=1 )
+        return productos.filter ((producto,index) => index <=0 )
 
     }
 

@@ -1,27 +1,23 @@
 import React from "react";
 import ItemDetail from "./itemDetail";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";import Itemjs from "./Itemjs";
+
 
 const ItemDetailContainer = () => {
  
 
-    const [productos, setProductos] = useState()
-
-    const getItem= new Promise ((resolve) =>{
-        resolve(buscador)
-    })
-
+    const [productos, setProductos] = useState([])
 
     useEffect(() => {
         
-        getItem()
+        buscarProducto()
         
     
     }, [])
 
 
     
-    const buscador =  async () => {
+const buscarProducto =  async () => {
 
     try{
         const response = await  fetch(`https://api.mercadolibre.com/sites/MLA/search?q=remeras`);
@@ -41,6 +37,11 @@ const ItemDetailContainer = () => {
             </>
         )
 }
+
+
+
+
+
 
 
 export default ItemDetailContainer;
