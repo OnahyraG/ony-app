@@ -7,6 +7,7 @@ const Itemjs = ({id, titulo, precio, img}) => {
         console.log("producto", titulo);
 
         return(
+                <div className="car">
                         <Card key={id} style={{ width: '18rem'}} >
                         <Card.Img variant="top" src={img} alt=""/>  
                         <Card.Body >
@@ -17,6 +18,7 @@ const Itemjs = ({id, titulo, precio, img}) => {
                         <Button variant="secondary">Go somewhere</Button>
                         </Card.Body>
                         </Card>
+                </div>
                 )
 }
 

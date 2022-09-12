@@ -14,7 +14,7 @@ const NavBar = () => {
                     <Nav.Link href="#home">Home</Nav.Link>
                     <Nav.Link href="#features">Features</Nav.Link>
                     <Nav.Link href="#pricing">
-                    <i class="ri-shopping-cart-2-line"/>
+                    
                     </Nav.Link>
                     
                 </Nav>
