@@ -1,44 +1,44 @@
 import React from "react";
 import ItemDetail from "./itemDetail";
-import { useEffect, useState } from "react";import Itemjs from "./Itemjs";
-import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import { useEffect, useState } from "react";
+import productos from '../../productMock';
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
 
+    const [item, setItem] = useState([]);
 
-    const [productos, setProductos] = useState([])
+    const {id} = useParams();
+
+    const filtradoPorId = () => {
+        productos.some( (product) => {
+            if(product.id == id){
+                setItem(product)
+            }
+        })
+    }
+
+    const getItem = new Promise ( (resolve, reject) => {
+        setTimeout( () => {
+            resolve(filtradoPorId)
+        }, 2000)
+    })
 
     useEffect(() => {
         
-        buscarProducto()
+        getItem
+            .then( (res) => {
+                setItem(res)
+            })
+            .catch( (error) => {
+                console.log("Error");
+            })
         
     
-    }, [])
-
-
-    
-const buscarProducto =  async () => {
-
-    try{
-        const response = await  fetch(`https://api.mercadolibre.com/sites/MLA/search?q=marketing`);
-        const data = await response.json();
-        setProductos(data.results);
-    }catch(e){
-        console.log(e);
-}
-    
-}
-
-
+    }, [id])
 
         return(
-            <>
-            <ItemDetail productos={productos}/>
-            <Link to={"/"}>
-                <Button variant="dark">Home</Button>
-            </Link>
-            </>
+            <ItemDetail  item={item} />
         )
 }
 

@@ -1,13 +1,15 @@
-import React from "react";
-import Itemjs from "./Itemjs";
+import ItemCount from './itemCount';
+import './styles/ItemDetail.css';
 
 
-const ItemDetail = ({productos}) => {
+const ItemDetail = ({item}) => {
+
+    const {nombre, precio, imagen, descripcion} = item;
 
 
-    const productosFiltrados = () => {
+    const productsAdded = (itemsToCart) => {
 
-        return productos.filter ((producto,index) => index <=0 )
+        console.log('Items agregados al carrito: ', itemsToCart)
 
     }
 
@@ -15,15 +17,19 @@ const ItemDetail = ({productos}) => {
     
     return (
     
-        <>
-        
-            {productosFiltrados().map((producto) => 
+        <div className="itemDetail">
+        <div>
+            <img src={`/assets/img/${imagen}`} className="cover" alt="Imagen cargando.." />
+        </div>
 
-                
-            <Itemjs id={producto.id} titulo={producto.title} img={producto.thumbnail} precio={producto.price}/>
-            )}
+        <div className="detalles">
+            <h2>{nombre}</h2>
+            <p>{descripcion}</p>
+            <span>{precio} $</span>
+            <ItemCount stock={10} initial={1} onAdd={productsAdded} />
+        </div>
 
-        </>
+        </div>
     )
 }
 
