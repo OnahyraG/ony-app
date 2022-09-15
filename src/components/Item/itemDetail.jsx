@@ -6,7 +6,7 @@ const ItemDetail = ({item}) => {
 
     const {nombre, precio, imagen, descripcion} = item;
 
-
+    //console log para ver el prodcuto en carrito
     const productsAdded = (itemsToCart) => {
 
         console.log('Items agregados al carrito: ', itemsToCart)
