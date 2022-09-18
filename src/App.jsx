@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Error from './pages/Error';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
-import CartProvider from './context/CartContext';
+import CartProvider from './context/cartContext';
 
 
 
@@ -16,8 +16,8 @@ const App = () => {
 
     return (
       <>
-          {/* <CartProvider/> */}
-          <BrowserRouter>
+          <CartProvider>
+            <BrowserRouter>
               
               <NavBar/>
               <Routes>
@@ -30,7 +30,7 @@ const App = () => {
               </Routes>
 
             </BrowserRouter>
-          
+        </CartProvider>
       </>
     );
 }

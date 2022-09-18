@@ -1,11 +1,16 @@
+import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/cartContext';
 import CartWidget from './CartWidget';
 import './NavBar.css' ;
 
 const NavBar = () => {
+
+    const { productos } = useContext(CartContext);
+    
     return (
     <>
     <Navbar bg="dark" variant="dark">
@@ -18,7 +23,7 @@ const NavBar = () => {
                     <Link to="/category/buzos"><button>Buzos</button></Link>                                    
                 </Nav>
 
-                <Link to="/cart"><CartWidget/></Link>
+                <Link to="/cart"><CartWidget productos={productos}/></Link>
         </Container>
     </Navbar>
     </>

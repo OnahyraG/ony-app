@@ -1,18 +1,20 @@
 import { useState } from 'react';
 import './styles/ItemCount.css';
 
-function ItemCount({ stock, initial, onAdd }){
+function ItemCount({ stock, onAdd, productoData}){
 
-    const [productCounter, setProductCounter] = useState(initial);
+    const [productCounter, setProductCounter] = useState(1);
     const [productStock, setProductStock] = useState(stock);
 
     //limite de stock
-    const addProduct = () => {
+    const addProduct = (e) => {
         productStock > productCounter ? setProductCounter( productCounter + 1) : console.log(`This product doesn't have any stock at the moment`);
+        e.stopPropagation();
     }
 
-    const removeProduct = () => {
+    const removeProduct = (e) => {
         productCounter > 1 ? setProductCounter( productCounter - 1) : console.log(`You can't do that!`);
+        e.stopPropagation();
     }
 
     //agregar al carrito

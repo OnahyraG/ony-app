@@ -1,8 +1,15 @@
+import { useContext } from 'react';
+import { CartContext } from '../../context/cartContext';
 
-const CartWidget = () => {
+const CartWidget = ({productos}) => {
+
+    const { productosQuantity } = useContext(CartContext);
+
     return(
-        <i className="ri-home-line"/>
-
+        <>
+        <i class="ri-shopping-cart-line"/>
+        {productos.length != 0 && <span>{productosQuantity}</span>}
+        </>
     )
 }
 
