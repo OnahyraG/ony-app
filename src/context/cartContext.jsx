@@ -69,7 +69,7 @@ const data = {
 }
 
     return (
-        <CartContext.Provider value={data}>
+        <CartContext.Provider value={data,productos}>
             {children}
         </CartContext.Provider>
     )
