@@ -1,4 +1,3 @@
-
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/Navbar';
@@ -11,25 +10,22 @@ import Cart from './pages/Cart';
 import CartProvider from './context/cartContext';
 
 
-
 const App = () => {
 
     return (
       <>
           <CartProvider>
-            <BrowserRouter>
-              
+          <BrowserRouter>
               <NavBar/>
               <Routes>
-
                   <Route path="/" element={ <Home />}/>
                   <Route path="/category/:categoryId" element={ <ItemListContainer />}/>
                   <Route path="/:category/:id" element={ <ItemDetailContainer />}/>
                   <Route path="/cart" element={<Cart/>} />
                   <Route path="*" element={<Error />} />
               </Routes>
-
             </BrowserRouter>
+
         </CartProvider>
       </>
     );
