@@ -1,7 +1,7 @@
 .product {
     float: left;
     width: 25%;
-    box-shadow: 1px 1px 5px #afafaf47;
+    box-shadow: 1px 1px 5px rgba(134, 101, 153, 0.2);
     border: 10px;
     display: flex;
     flex-direction: column;
