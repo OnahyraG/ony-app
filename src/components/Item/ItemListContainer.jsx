@@ -1,41 +1,44 @@
 import {useState, useEffect} from "react";
 import ItemList from "./itemList"; 
 import { useParams } from "react-router-dom";
-import productos from "../../productMock";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import db from "../../firebase/firebase";
 
 
 const ItemListContainer = () => {
 
-    //const [carrito, setCarrito] = useState([])
+    
     const [listaProductos, setListaProductos] = useState([]);
 
-    const {categoryId} = useParams();
+    const [loading, setLoading] = useState(true);
 
-    const filtroPorCategoria = productos.filter((productos) => productos.category === categoryId);
-
-    const getProducts = new Promise( (resolve, reject) => {
-        setTimeout( () => {
-            categoryId ? resolve(filtroPorCategoria) : resolve(productos)
-        })
-    }, 2000 )
+    const { categoryId } = useParams();
 
     useEffect(() => {
         
-        getProducts
-            .then( (res) => {
-                setListaProductos(res);
-            } )
-            .catch( () => {
-                console.log("Error");
+        const productsCollection = collection(db, 'products');
+        const categoryQuery = categoryId && query(productsCollection, where("category", "==", categoryId));
+
+        getDocs(categoryId ? categoryQuery : productsCollection)
+        .then( result => {
+            const itemList = result.docs.map( item => {
+                return {
+                    id: item.id,
+                    ...item.data()
+                }
             })
-        
+
+            setListaProductos(itemList);
+        })
+        .catch( () => console.log("Error retrieving products"))
+        .finally( () => setLoading(false) );
     
     }, [categoryId])
 
     return(
-        <> 
-        <ItemList productos={listaProductos}/>
-        </>
+        <div className='list-products'> 
+        {loading ? <h2>Loading...</h2> : <ItemList dataProducts={listaProductos}/>}
+        </div>
     )
 
 }
