@@ -2,7 +2,7 @@ import React from "react";
 import ItemDetail from "./itemDetail";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {doc, getDoc, collection} from "firebase/firestore";
+import {doc, getDoc, collection} from "firebase/firebase-firestore";
 import db from "../../firebase/firebase";
 
 
@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
             setItem(product);
         })
     
-    }, []);
+    }, [id]);
 
         return(
             <ItemDetail  item={item} />

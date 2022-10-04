@@ -5,7 +5,7 @@ import './styles/Cart.css';
 
 const Cart = () =>  {
 
-    const { productos, cantidadDeProductos, RemoveItem, clear, precioTotal } = useContext(CartContext);
+    const { productos, RemoveItem, clear, precioTotal } = useContext(CartContext);
 
     return(
 
@@ -16,7 +16,7 @@ const Cart = () =>  {
         :
 
         <>
-           <div className="cart">
+            <div className="cart">
                         <h2>Your purchase</h2>
                         <div>
                             {productos.map(producto => (

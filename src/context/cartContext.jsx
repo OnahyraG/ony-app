@@ -5,15 +5,15 @@ const CartContext = React.createContext();
 const CartProvider = ({children}) => {
 
     const [productos, setProductos] = useState([]);
-    const [productosQuantity, setProductosQuantity] = useState(0);
+    
 
     const cantidadDeProductos = () =>  {
         let cantidad = 0;
-    
         productos.forEach( producto => {
             cantidad += producto.cantidad
-    });
-    setProductosQuantity(cantidad);
+        });
+        
+        getProductsQuantity(cantidad);
     }
 
     useEffect( () => {
@@ -23,50 +23,58 @@ const CartProvider = ({children}) => {
     
 
     const addItemCart = (producto) => {
-    if(isInCart(producto.id)){
-    const encontrado = productos.find( prod => prod.id === producto.id);
-    const productoEncontradoIndex = productos.indexOf(encontrado);
-    const productosAuxiliar = [...productos];
+        if(isInCart(producto.id)){
+            const encontrado = productos.find( prod => prod.id === producto.id);
+            const productoEncontradoIndex = productos.indexOf(encontrado);
+            const productosAuxiliar = [...productos];
 
-    productosAuxiliar[productoEncontradoIndex].cantidad += producto.cantidad;
-    setProductos(productosAuxiliar)
+            productosAuxiliar[productoEncontradoIndex].cantidad += producto.cantidad;
+            setProductos(productosAuxiliar)
 
-    } else {
+        } else {
 
-    setProductos([...productos, producto]);
+            setProductos([...productos, producto]);
+        }
     }
+
+    const RemoveItem = (id) => {
+        setProductos(productos.filter (producto => producto.id !== id)  );
+        getProductsQuantity();
     }
 
-const RemoveItem = (id) => {
-    setProductos(productos.filter (producto => producto.id !== id)  );
-    setProductosQuantity();
-}
+    const clear = () => {
+            setProductos([]);
+            getProductsQuantity(0);
+    }
+    const getProductsQuantity = () => {
+        let cantidad = 0;
+        productos.forEach( producto => {
+            cantidad += producto.cantidad
+        });
+        return cantidad;
 
-const clear = () => {
-        setProductos([]);
-        setProductosQuantity(0);
-}
+    }
 
-const precioTotal = () => {
-    let total = 0;
-    productos.forEach( producto => {
-    total += (producto.precio * producto.cantidad);
-})
-    return total;
-}
+    const precioTotal = () => {
+        let total = 0;
+        productos.forEach( producto => {
+        total += (producto.precio * producto.cantidad);
+    })
+        return total;
+    }
 
-const isInCart = (id) => {
-    return productos.some( product => product.id === id );
-}
+    const isInCart = (id) => {
+        return productos.some( product => product.id === id );
+    }
 
-const data = {
-    productos,
-    addItemCart,
-    RemoveItem,
-    clear,
-    productosQuantity,
-    precioTotal
-}
+    const data = {
+        productos,
+        addItemCart,
+        RemoveItem,
+        clear,
+        getProductsQuantity,
+        precioTotal
+    }
 
     return (
         <CartContext.Provider value={data}>
