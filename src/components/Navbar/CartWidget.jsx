@@ -8,7 +8,7 @@ const CartWidget = ({productos}) => {
     return(
         <>
         <i class="ri-shopping-cart-line"/>
-        {productos.length != 0 && <span>{productosQuantity}</span>}
+        {productos.length !== 0 && <span>{productosQuantity}</span>}
         </>
     )
 }

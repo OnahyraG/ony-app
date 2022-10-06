@@ -6,12 +6,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD-J6Swt3fwILFenr4lNc2vs1hoWPXFWDQ",
-  authDomain: "mangastore-5d929.firebaseapp.com",
-  projectId: "mangastore-5d929",
-  storageBucket: "mangastore-5d929.appspot.com",
-  messagingSenderId: "890996518052",
-  appId: "1:890996518052:web:2a4f5d2edd2106f7c84a31"
+  apiKey: "AIzaSyDsPTANaw0z1O8kCZ9jg8gFwe87q0W9AoA",
+  authDomain: "reactjs-coderhouse-5c299.firebaseapp.com",
+  projectId: "reactjs-coderhouse-5c299",
+  storageBucket: "reactjs-coderhouse-5c299.appspot.com",
+  messagingSenderId: "518548081567",
+  appId: "1:518548081567:web:141accc4f131f006b68baa"
 };
 
 // Initialize Firebase

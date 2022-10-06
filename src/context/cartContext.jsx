@@ -4,12 +4,12 @@ const CartContext = React.createContext();
 
 const CartProvider = ({children}) => {
 
-    const [productos, setProductos] = useState([]);
+    const [products, setProducts] = useState([]);
     
 
-    const cantidadDeProductos = () =>  {
+    const cantidadDeProducts = () =>  {
         let cantidad = 0;
-        productos.forEach( producto => {
+        products.forEach( producto => {
             cantidad += producto.cantidad
         });
         
@@ -19,36 +19,36 @@ const CartProvider = ({children}) => {
     useEffect( () => {
 
         cantidadDeProductos();
-    }, [productos]);
+    }, [products]);
     
 
     const addItemCart = (producto) => {
         if(isInCart(producto.id)){
-            const encontrado = productos.find( prod => prod.id === producto.id);
-            const productoEncontradoIndex = productos.indexOf(encontrado);
-            const productosAuxiliar = [...productos];
+            const encontrado = products.find( prod => prod.id === producto.id);
+            const productoEncontradoIndex = products.indexOf(encontrado);
+            const productosAuxiliar = [...products];
 
             productosAuxiliar[productoEncontradoIndex].cantidad += producto.cantidad;
-            setProductos(productosAuxiliar)
+            setProducts(productosAuxiliar)
 
         } else {
 
-            setProductos([...productos, producto]);
+            setProducts([...products, producto]);
         }
     }
 
     const RemoveItem = (id) => {
-        setProductos(productos.filter (producto => producto.id !== id)  );
+        setProducts(products.filter (producto => producto.id !== id)  );
         getProductsQuantity();
     }
 
     const clear = () => {
-            setProductos([]);
+            setProducts([]);
             getProductsQuantity(0);
     }
     const getProductsQuantity = () => {
         let cantidad = 0;
-        productos.forEach( producto => {
+        products.forEach( producto => {
             cantidad += producto.cantidad
         });
         return cantidad;
@@ -57,18 +57,18 @@ const CartProvider = ({children}) => {
 
     const precioTotal = () => {
         let total = 0;
-        productos.forEach( producto => {
+        products.forEach( producto => {
         total += (producto.precio * producto.cantidad);
     })
         return total;
     }
 
     const isInCart = (id) => {
-        return productos.some( product => product.id === id );
+        return products.some( producto => producto.id === id );
     }
 
     const data = {
-        productos,
+        products,
         addItemCart,
         RemoveItem,
         clear,
