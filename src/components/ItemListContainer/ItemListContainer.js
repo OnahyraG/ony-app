@@ -1,21 +1,20 @@
-import {useState, useEffect} from "react";
-import ItemList from "./itemList"; 
+import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
+import ItemList from '../ItemList/ItemList';
+import './ItemListContainer.css';
 import { collection, getDocs, query, where } from "firebase/firestore";
 import db from "../../firebase/firebase";
 
-
 const ItemListContainer = () => {
 
-    
-    const [listaProductos, setListaProductos] = useState([]);
+    const [listProducts, setListProducts] = useState([]);
 
     const [loading, setLoading] = useState(true);
-
+    
     const { categoryId } = useParams();
 
-    useEffect(() => {
-        
+    
+    useEffect( () => {
         const productsCollection = collection(db, 'products');
         const categoryQuery = categoryId && query(productsCollection, where("category", "==", categoryId));
 
@@ -27,31 +26,18 @@ const ItemListContainer = () => {
                     ...item.data()
                 }
             })
-
-            setListaProductos(itemList);
+            setListProducts(itemList);
         })
-        .catch( () => console.log("Error retrieving products"))
+        .catch( () => console.log("Error"))
         .finally( () => setLoading(false) );
+    }, [categoryId]);
     
-    }, [categoryId])
-
+    
     return(
-        <div className='list-products'> 
-        {loading ? <h2>Loading...</h2> : <ItemList dataProducts={listaProductos}/>}
+        <div className='list-products'>
+            {loading ? <div className="loading"><h2>Loading...</h2></div> : <ItemList dataProducts={listProducts}/>}
         </div>
     )
-
 }
 
-
-
-        
-
-
-
-
-
-
-
-export default ItemListContainer;
-
+export default ItemListContainer

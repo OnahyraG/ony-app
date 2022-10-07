@@ -1,17 +1,18 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+// Import the functions you need from the SDKs you need
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDsPTANaw0z1O8kCZ9jg8gFwe87q0W9AoA",
-  authDomain: "reactjs-coderhouse-5c299.firebaseapp.com",
-  projectId: "reactjs-coderhouse-5c299",
-  storageBucket: "reactjs-coderhouse-5c299.appspot.com",
-  messagingSenderId: "518548081567",
-  appId: "1:518548081567:web:141accc4f131f006b68baa"
+  apiKey: "AIzaSyCaSi7zso6gMfxVDzVmsaNqNl2tKrewmYE",
+  authDomain: "ony-app-74d62.firebaseapp.com",
+  projectId: "ony-app-74d62",
+  storageBucket: "ony-app-74d62.appspot.com",
+  messagingSenderId: "38209725998",
+  appId: "1:38209725998:web:53a203639fad297bf561bf"
 };
 
 // Initialize Firebase

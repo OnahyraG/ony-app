@@ -1,0 +1,22 @@
+.product {
+  width: 70%;
+  height: auto;
+  box-shadow: 5px 5px 10px #50505047;
+  border: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 100px;
+  margin-left: 100px;
+  background-color: #fff;
+}
+
+.product .cover {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  max-width: 300px;
+  max-height: 500px;
+}
