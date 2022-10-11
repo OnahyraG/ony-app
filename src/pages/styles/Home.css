@@ -25,12 +25,13 @@ p{
 
 .home h1{
     position: relative;
-    font-size: 80px;
+    font-size: 60px;
     left: 5%;
-    padding-top: 40px;
+    padding-top: 0px;
     overflow: hidden;
-    width: 30%;
-    animation: flash 2s forwards infinite;
+    width: 31%;
+    background-color: aliceblue;
+    
 }
 
 .carousel {
@@ -44,7 +45,7 @@ p{
 }
 
 .carousel img{
-    border-color: #000;
+    border-color: rgb(181, 150, 184);
     border-style: solid;
     border-width: 7px;
 }

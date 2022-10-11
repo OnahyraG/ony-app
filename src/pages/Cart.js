@@ -77,11 +77,11 @@ const Checkout = () => {
                         <div>
                             {products.map(product => (
                                 <div key={product.id} className="cartProductCard">
-                                    <img src={`/assets/img/${product.image}`} alt="Product" />
+                                    <img src={`/assets/img/${product.imagen}`} alt="Product" />
                                     <div className="cartProductInfo">
-                                        <h4>{product.title}</h4>
+                                        <h4>{product.nombre}</h4>
                                         <div className="purchaseDetails">
-                                            <span>Precio: ${product.price} ARS</span>
+                                            <span>Precio: ${product.precio} ARS</span>
                                             <span>Cantidad: {product.quantity}</span>
                                         </div>
                                         <button onClick={() => removeProduct(product.id)}>elimar producto</button>
