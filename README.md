@@ -24,4 +24,4 @@ Un ecommerce.
 
 # Video de muestra
 
-![lightnovel](https://github.com/OnahyraG/ony-app/tree/main/public/assets/video/explicacion.mkv)
+![lightnovel]
