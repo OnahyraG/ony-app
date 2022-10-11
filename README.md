@@ -19,6 +19,6 @@ Un ecommerce.
 
 <br>
 
-# How to buy Light Novels
+# Video de Muestra
 
-![lightnovel](https://github.com/OnahyraG/ony-app/blob/main/public/assets/img/video/explicacion.mkv)
+![video](https://github.com/OnahyraG/ony-app/blob/main/public/assets/img/video/explicacion.mkv)
