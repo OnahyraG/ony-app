@@ -1,6 +1,6 @@
 import './App.css'; 
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import NavBar from './components/NavBar/NavBar';
+import NavBar from './components/Navbar/NavBar';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { ToastContainer} from 'react-toastify';
 import Home from './pages/Home';
